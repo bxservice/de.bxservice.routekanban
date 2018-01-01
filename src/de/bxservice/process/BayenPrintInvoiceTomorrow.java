@@ -2,7 +2,7 @@ package de.bxservice.process;
 
 import org.compiere.process.SvrProcess;
 
-public class BayenPrintInvoiceProcess extends SvrProcess{
+public class BayenPrintInvoiceTomorrow extends SvrProcess {
 
 	@Override
 	protected void prepare() {
@@ -11,7 +11,7 @@ public class BayenPrintInvoiceProcess extends SvrProcess{
 	@Override
 	protected String doIt() throws Exception {
 		
-		String where = "DateOrdered = to_date(?, 'yyyy-mm-dd') ";
+		String where = " DateOrdered = next_working_day(?) ";
 		
 		StatusPrinter printer = new StatusPrinter(where);
 		printer.printOrder(getAD_PInstance_ID(), get_TrxName());
