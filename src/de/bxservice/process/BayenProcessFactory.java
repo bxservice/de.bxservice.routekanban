@@ -11,6 +11,8 @@ public class BayenProcessFactory implements IProcessFactory {
 			return new BayenPrintInvoiceProcess();
 		if (BayenPrintInvoiceTomorrow.class.getName().equals(className))
 			return new BayenPrintInvoiceTomorrow();
+		if (BayenLoadingTourPrint.class.getName().equals(className))
+			return new BayenLoadingTourPrint();
 		
 		return null;
 	}
