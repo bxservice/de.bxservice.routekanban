@@ -18,7 +18,8 @@ public class StatusPrinter {
 	public StatusPrinter(String andClause) {
 		
 		whereClause.append(" EXISTS (SELECT viewID FROM T_Selection WHERE T_Selection.AD_PInstance_ID=? ");
-		whereClause.append(" AND (cast(T_Selection.viewID as int)) = C_Order.BAY_Route_ID) AND isprinted = 'N' AND ");
+		whereClause.append(" AND (cast(T_Selection.viewID as int)) = C_Order.BAY_Route_ID) ");
+		whereClause.append(" AND IsSoTrx='Y' AND IsPrinted='N' AND DocStatus IN ('IP') AND ");
 		whereClause.append(andClause);
 	}
 	
