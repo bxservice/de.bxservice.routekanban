@@ -13,7 +13,8 @@ public class BayenPrintInvoiceProcess extends SvrProcess{
 		
 		String where = "DateOrdered = to_date(?, 'yyyy-mm-dd') ";
 		
-		StatusPrinter printer = new StatusPrinter(where);
+		StatusPrinter printer = new StatusPrinter();
+		printer.setWhereClause(where);
 		printer.printOrder(getAD_PInstance_ID(), get_TrxName());
 		
 		return "";

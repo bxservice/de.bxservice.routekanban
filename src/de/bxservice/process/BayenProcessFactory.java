@@ -13,6 +13,8 @@ public class BayenProcessFactory implements IProcessFactory {
 			return new BayenPrintInvoiceTomorrow();
 		if (BayenLoadingTourPrint.class.getName().equals(className))
 			return new BayenLoadingTourPrint();
+		if (BayenLoadingTourPrintTomorrow.class.getName().equals(className))
+			return new BayenLoadingTourPrintTomorrow();
 		
 		return null;
 	}
