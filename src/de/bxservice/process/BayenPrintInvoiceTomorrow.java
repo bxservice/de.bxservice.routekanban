@@ -13,7 +13,8 @@ public class BayenPrintInvoiceTomorrow extends SvrProcess {
 		
 		String where = " DateOrdered = next_working_day(?) ";
 		
-		StatusPrinter printer = new StatusPrinter(where);
+		StatusPrinter printer = new StatusPrinter();
+		printer.setWhereClause(where);
 		printer.printOrder(getAD_PInstance_ID(), get_TrxName());
 		
 		return "";
