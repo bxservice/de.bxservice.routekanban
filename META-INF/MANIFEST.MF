@@ -2,10 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: InvoicePrint
 Bundle-SymbolicName: de.bxservice.routekanban;singleton:=true
-Bundle-Version: 1.0.3.qualifier
+Bundle-Version: 1.0.4.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.adempiere.base;bundle-version="5.1.0",
  org.adempiere.plugin.utils;bundle-version="5.1.0"
 Bundle-Activator: org.adempiere.plugin.utils.Incremental2PackActivator
 Service-Component: OSGI-INF/*.xml
-Import-Package: de.bayen.freibier.util
+Import-Package: de.bayen.freibier.util,
+ org.kanbanboard.model

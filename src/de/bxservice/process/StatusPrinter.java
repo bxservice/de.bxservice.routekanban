@@ -26,15 +26,14 @@ public class StatusPrinter {
 	public void setWhereClause(String andClause) {
 		
 		whereClause.append(" EXISTS (SELECT viewID FROM T_Selection WHERE T_Selection.AD_PInstance_ID=? ");
-		whereClause.append(" AND (cast(T_Selection.viewID as int)) = C_Order.BAY_Route_ID) ");
-		whereClause.append(" AND IsSoTrx='Y' AND IsPrinted='N' AND DocStatus IN ('IP') AND ");
+		whereClause.append(" AND (cast(T_Selection.viewID as int)) = C_Order.BAY_Route_ID) AND ");
 		whereClause.append(andClause);
 	}
 	
 	public void printOrder(int AD_PInstance_ID, String trxName) {
 		
 		List<MOrder> statusOrders = new Query(Env.getCtx(), MOrder.Table_Name, whereClause.toString(), trxName)
-				.setParameters(AD_PInstance_ID, Env.getContextAsDate(Env.getCtx(), "#Date"))
+				.setParameters(AD_PInstance_ID)
 				.setOnlyActiveRecords(true)
 				.list();
 		
